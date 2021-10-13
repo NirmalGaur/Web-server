@@ -32,6 +32,8 @@ const addNote = (title, body) => {
 
   const duplicateNote = notes.find(note => note.title === title); // unlike the filter method, here we stop as soon the duplicate is found
 
+  debugger; // explained below
+
   if (!duplicateNote) {
     notes.push({
       title: title,
@@ -84,5 +86,14 @@ module.exports = {
   listNotes: listNotes,
   readNote: readNote,
 };
+
+//$_ DEBUGGER is node's built in debugging tool which integrates with V-Eight and the Chrome browser. The debugger need to be at a specific point in our application, thats gonna stop the application at that point.
+// Debugger does not pause the application by default, for that we need to add 'inspect' after the 'node' in our command: node inspect app.js add --title="course' --body="nodejs"
+// Now we have to go to chrome and type url: chrome://inspect
+// There we can click 'inspect' below the 'Target'. This open a new window of the developer tools.
+// There we can open our file by clicking 'Add folder to Workspace' on the top left.
+// We can open console alongwith Sources by clicking esc key.
+// As we close the developer tools window, there will bbe no remote target available on the inspect page. If we want to run it again, we run the command 'restart' from the terminal.
+// To shut down the inspector, we have to press Ctrl+c twice on the terminal.
 
 // SHOW: module.exports = getNotes;
